@@ -34,17 +34,15 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.v(title, "Android Icon Clicked");
                 AlertDialog.Builder profileBuilder = new AlertDialog.Builder(andIcon.getContext());
+                profileBuilder.setMessage("MADness").setCancelable(true);
                 profileBuilder.setPositiveButton("View", new DialogInterface.OnClickListener() {
                     @Override
                     // After clicking on view, random integer generated.
                     public void onClick(DialogInterface dialog, int i) {
                         Log.v(title, "User wants to view!");
                         Intent viewIntent = new Intent(ListActivity.this, MainActivity.class);
-                        viewIntent.putExtra("randomNumber", randomNumber());
-                        Log.v(title, "Random number is " + randomNumber());
                         startActivity(viewIntent);
                     }
-
                 });
                 profileBuilder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
                     @Override
@@ -54,14 +52,8 @@ public class ListActivity extends AppCompatActivity {
                 });
                 AlertDialog alert = profileBuilder.create();
                 alert.setTitle("Profile");
-                alert.setMessage("MADness");
                 alert.show();
             }
         });
-    }
-    private int randomNumber(){
-        Random ran = new Random();
-        int myRandomNumber  = ran.nextInt(1000000000);
-        return myRandomNumber;
     }
 }

@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     final String TITLE = "Main Activity";
@@ -19,7 +21,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+    };
+    @Override
+    protected void onResume(){
+        super.onResume();
         myUser = new User("Hello World!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
                 "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", 1, false);
 
@@ -35,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.v(TITLE, "Button A clicked");
                 if (myUser.isFollowed()) {
                     myUser.setFollowed(false);
-                    Log.v(TITLE, "Followed");
+                    Log.v(TITLE, "Unfollowed");
                     fllwBtn.setText("Unfollow");
                     Toast.makeText(getApplicationContext(),"Unfollowed",Toast.LENGTH_SHORT).show();
                 } else {
                     myUser.setFollowed(true);
-                    Log.v(TITLE, "Unfollowed");
+                    Log.v(TITLE, "Followed");
                     fllwBtn.setText("Follow");
                     Toast.makeText(getApplicationContext(),"Followed",Toast.LENGTH_SHORT).show();
                 }
@@ -49,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
         Intent myRecvIntent = getIntent();
         int randomNum = myRecvIntent.getIntExtra("randomNumber",0);
         TextView name = findViewById(R.id.userName);
-        name.setText("MAD " + randomNum);
-    };
-    @Override
-    protected void onResume(){
-        super.onResume();
-
+        name.setText("MAD " + String.valueOf(randomNumber()));
+    }
+    private int randomNumber(){
+        Random ran = new Random();
+        int myRandomNumber  = ran.nextInt(1000000000);
+        return myRandomNumber;
     }
 }
