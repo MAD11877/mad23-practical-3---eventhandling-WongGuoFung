@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    };
+    }
     @Override
     protected void onResume(){
         super.onResume();
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     fllwBtn.setText("Follow");
                     Toast.makeText(getApplicationContext(),"Followed",Toast.LENGTH_SHORT).show();
                 }
-            };
+            }
         });
         Intent myRecvIntent = getIntent();
         int randomNum = myRecvIntent.getIntExtra("randomNumber",0);
