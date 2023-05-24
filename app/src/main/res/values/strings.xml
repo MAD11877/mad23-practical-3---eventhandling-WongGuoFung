@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">madpractical</string>
-    <string name="name">userName</string>
-    <string name="description">userDescription</string>
-    <string name="title_activity_list">ListActivity</string>
 </resources>
