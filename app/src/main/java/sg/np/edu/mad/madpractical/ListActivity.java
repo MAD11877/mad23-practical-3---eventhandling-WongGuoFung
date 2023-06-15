@@ -12,8 +12,6 @@ import android.widget.ImageView;
 
 import java.util.Random;
 
-import sg.edu.np.mad.madpractical.R;
-
 public class ListActivity extends AppCompatActivity {
 
     final String title = "Activity2";
