@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Log.v(TITLE, "Resume");
 
-        User user1 = new User("Shahid", "zao shang hao zhong guo", 1, false);
+        User user1 = new User("Guo Fung", "Hello World", 1, false);
         Button fbutton = findViewById(R.id.fbutton);
         TextView fToast = findViewById(R.id.toastview);
 
